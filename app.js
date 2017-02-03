@@ -124,7 +124,7 @@ bot.dialog('/menu', [
     function (session) {
        // var style = builder.ListStyle[results.response.entity];
          var style = builder.ListStyle['button'];
-        builder.Prompts.choice(session, "!). I can help you with integrations,  What would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
+        builder.Prompts.choice(session, "!I can help you with integrations,  What would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
@@ -155,7 +155,7 @@ bot.dialog('/menu', [
 
 bot.dialog('/basic', [
 	function (session) {
-         session.send("That's great %s..\n ", name);
+         session.send("That's great %s..\n ", name || '');
     	 builder.Prompts.choice(session, "Which PayPal product/solution are you looking for?", ["First time integration", "HELP! I have issues!"]); 
     	},
     	 function (session, results) {
