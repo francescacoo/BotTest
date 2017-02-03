@@ -95,7 +95,7 @@ bot.dialog('/', [
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
-        session.send("Hi... I'm the integration bot for Skype.");
+        session.send("Hi %s... Welcome to the PayPal Integration's bot (Beta).", name);
         session.beginDialog('/help');
     },
     function (session, results) {
