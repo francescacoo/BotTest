@@ -95,6 +95,7 @@ bot.dialog('/', [
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
+        var name = message.user ? message.user.name : null;
         session.send("Hi %s... Welcome to the PayPal Integration's bot (Beta).", name);
         session.beginDialog('/help');
     },
