@@ -62,6 +62,7 @@ bot.on('conversationUpdate', function (message) {
 bot.on('contactRelationUpdate', function (message) {
     if (message.action === 'add') {
         var name = message.user ? message.user.name : null;
+        session.userData.name = name;
         var reply = new builder.Message()
                 .address(message.address)
                 .text("Hi %s... Welcome to the PayPal Integration's bot (Beta). Say 'hello' to start chatting.", name || 'there');
