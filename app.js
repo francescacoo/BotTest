@@ -13,8 +13,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
   
 // Create chat bot
 var connector = new builder.ChatConnector({
-    appId: '05d7d11d-4c13-49b8-9dca-db6ac975fb12',
-    appPassword: 'pHHTpacqsQwjA3DnYMdeCEs'
+    appId: 'f828b328-816b-4d08-8558-1826c7bcde59',
+    appPassword: 'dPNcfPNJRxc4mXLtFen4iWR'
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
@@ -88,7 +88,7 @@ bot.dialog('/', [
     function (session) {
         // Send a greeting and show help.
         var card = new builder.HeroCard(session)
-            .title("Integration Test Bot")
+            .title("PP-integrations")
             .text("Our smartest integration team mate.")
             .images([
                  builder.CardImage.create(session, "https://img0.etsystatic.com/033/1/9136998/il_340x270.625165576_jf6k.jpg")
