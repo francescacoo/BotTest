@@ -64,7 +64,7 @@ bot.on('contactRelationUpdate', function (message) {
         var name = message.user ? message.user.name : null;
         var reply = new builder.Message()
                 .address(message.address)
-                .text("Hello %s... Thanks for adding me. Say 'hello' to start chatting.", name || 'there');
+                .text("Hi %s... Welcome to the PayPal Integration's bot (Beta). Say 'hello' to start chatting.", name || 'there');
         bot.send(reply);
     } else {
         // delete their data
@@ -122,18 +122,18 @@ bot.dialog('/menu', [
     function (session) {
        // var style = builder.ListStyle[results.response.entity];
          var style = builder.ListStyle['button'];
-        builder.Prompts.choice(session, "What can I help you with?.", "Basic Integration|Advanced Integration|Customization", { listStyle: style });
+        builder.Prompts.choice(session, "!). I can help you with integrations,  What would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
  switch (results.response.entity) {
-            case "Basic Integration":
+            case "Start an integration":
                 session.replaceDialog("/basic");
                 break;
-            case "Advanced Integration":
+            case "How to..":
                 session.replaceDialog("/advanced");
                 break;
-            case "Customization":
+            case "xxxxxxx":
                 session.replaceDialog("/customization");
                 break;
             default:
@@ -153,8 +153,8 @@ bot.dialog('/menu', [
 
 bot.dialog('/basic', [
 	function (session) {
-         session.send("Working on a basic integration.. very good. \n The technical guidelines can be found here: https://developer.paypal.com/docs/integration/direct/express-checkout/integration-jsv4/basic-integration/");
-    	 builder.Prompts.choice(session, "Which is your current scenario?", ["First time integration", "HELP! I have issues!"]); 
+         session.send("That's great %s..\n ", name);
+    	 builder.Prompts.choice(session, "Which PayPal product/solution are you looking for?", ["First time integration", "HELP! I have issues!"]); 
     	},
     	 function (session, results) {
         switch (results.response.entity) {
