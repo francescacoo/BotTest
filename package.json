@@ -1,0 +1,27 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "testing bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "francesca p",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.6.0",
+    "restify": "^4.3.0"
+  },
+  "engines": {
+    "node": "6.9.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francescacoo/bot2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/francescacoo/bot2/issues"
+  },
+  "homepage": "https://github.com/francescacoo/bot2#readme"
+}
