@@ -155,7 +155,8 @@ bot.dialog('/menu', [
 
 bot.dialog('/basic', [
 	function (session) {
-         session.send("That's great %s..\n ", name || '');
+  //       session.send("That's great %s..\n ", name || ''); TO FIND OUT HOW TO SAVE THE NAME
+  		session.send("That's great!\n ");
     	 builder.Prompts.choice(session, "Which PayPal product/solution are you looking for?", ["First time integration", "HELP! I have issues!"]); 
     	},
     	 function (session, results) {
