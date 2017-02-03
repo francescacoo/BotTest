@@ -91,7 +91,7 @@ bot.dialog('/', [
             .title("PP-integrations")
             .text("Our smartest integration team mate.")
             .images([
-                 builder.CardImage.create(session, "https://img0.etsystatic.com/033/1/9136998/il_340x270.625165576_jf6k.jpg")
+                 builder.CardImage.create(session, "https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_74x46.jpg")
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
