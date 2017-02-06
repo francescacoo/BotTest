@@ -123,22 +123,22 @@ bot.dialog('/menu', [
         var style = builder.ListStyle['button'];
         builder.Prompts.choice(session, "I can help you with integrations, what would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
         //session.send("Tip of the day: at any point you can say 'help' for more detailed explanation.");
-        session.beginDialog('/help');
+        //session.beginDialog('/help');
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
  			switch (results.response.entity) {
             case "Start an integration":
-                session.replaceDialog("/basic");
+                session.beginDialog("/basic");
                 break;
             case "How to..":
-                session.replaceDialog("/advanced");
+                session.beginDialog("/advanced");
                 break;
             case "xxxxxxx":
-                session.replaceDialog("/customization");
+                session.beginDialog("/customization");
                 break;
             default:
-                session.replaceDialog("/");
+                session.beginDialog("/");
                 break;
         }
         } else {
