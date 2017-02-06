@@ -122,7 +122,8 @@ bot.dialog('/', [
 
 bot.dialog('/menu', [
     function (session) {
-        builder.Prompts.choice(session, "I can help you with integrations, what would you like to do?", "Start an integration|How to..|xxxxxxx");
+    	var style = builder.ListStyle['button'];
+        builder.Prompts.choice(session, "I can help you with integrations, what would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
