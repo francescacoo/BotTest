@@ -62,7 +62,6 @@ bot.on('conversationUpdate', function (message) {
 bot.on('contactRelationUpdate', function (message) {
     if (message.action === 'add') {
         var name = message.user ? message.user.name : null;
-        session.userData.name = name;
         var reply = new builder.Message()
                 .address(message.address)
                 .text("Hi %s... Welcome to the PayPal Integration's bot (Beta). Say 'hello' to start chatting.", name || 'there');
@@ -71,6 +70,20 @@ bot.on('contactRelationUpdate', function (message) {
         // delete their data
     }
 });
+
+bot.on('deleteUserData', function (message) {
+    // User asked to delete their data
+});
+
+
+//=========================================================
+// Bots Middleware
+//=========================================================
+
+// Anytime the major version is incremented any existing conversations will be restarted.
+bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
+
+
 
 //=========================================================
 // Bots Global Actions
