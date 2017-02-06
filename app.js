@@ -122,8 +122,8 @@ bot.dialog('/menu', [
        // var style = builder.ListStyle[results.response.entity];
         var style = builder.ListStyle['button'];
         builder.Prompts.choice(session, "I can help you with integrations, what would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
-        session.send("Tip of the day: at any point you can say 'help' for more detailed explanation.");
-        //session.beginDialog('/help');
+        //session.send("Tip of the day: at any point you can say 'help' for more detailed explanation.");
+        session.beginDialog('/help');
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
