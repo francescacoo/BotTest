@@ -66,7 +66,7 @@ bot.on('contactRelationUpdate', function (message) {
         var name = message.user ? message.user.name : null;
         var reply = new builder.Message()
                 .address(message.address)
-                .text("Hello %s... Thanks for adding me. Say 'hello' to see some great demos.", name || 'there');
+                .text("Hello %s... Thanks for adding me. Say 'hello' to start chatting.", name || 'there');
         bot.send(reply);
     } else {
         // delete their data
@@ -100,14 +100,14 @@ bot.dialog('/', [
     function (session) {
         // Send a greeting and show help.
         var card = new builder.HeroCard(session)
-            .title("Microsoft Bot Framework")
-            .text("Your bots - wherever your users are talking.")
+            .title("PP-Integration")
+            .text("Our smartest integration teammate")
             .images([
-                 builder.CardImage.create(session, "http://docs.botframework.com/images/demo_bot_image.png")
+                 builder.CardImage.create(session, "https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_74x46.jpg")
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
-        session.send("Hi... I'm the Microsoft Bot Framework demo bot for Skype. I can show you everything you can use our Bot Builder SDK to do on Skype.");
+        session.send("Hi... Welcome to the PayPal Integration's bot (Beta).");
         session.beginDialog('/help');
     },
     function (session, results) {
@@ -122,7 +122,7 @@ bot.dialog('/', [
 
 bot.dialog('/menu', [
     function (session) {
-        builder.Prompts.choice(session, "What demo would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");
+        builder.Prompts.choice(session, "I can help you with integrations, what would you like to do?", "Start an integration|How to..|xxxxxxx");
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
