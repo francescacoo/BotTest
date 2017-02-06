@@ -109,9 +109,8 @@ bot.dialog('/', [
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
-
         session.send("Hi... Welcome to the PayPal Integration's bot (Beta).");
-        session.beginDialog('/menu');
+        session.beginDialog('/help');
  //       session.beginDialog('/help');
     },
     function (session, results) {
@@ -124,13 +123,6 @@ bot.dialog('/', [
     }
 ]);
 
-// help
-
-bot.dialog('/help', [
-    function (session) {
-        session.endDialog("Global commands that are available anytime:\n* goodbye - End this conversation.\n* help - Displays these commands.");
-    }
-]);
 
 
 // menu
@@ -168,6 +160,14 @@ bot.dialog('/menu', [
         session.replaceDialog('/menu');
     }
 ]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
+
+
+bot.dialog('/help', [
+    function (session) {
+        session.endDialog("Global commands that are available anytime:\n\n* menu - Exits a demo and returns to the menu.\n* goodbye - End this conversation.\n* help - Displays these commands.");
+    }
+]);
+
 
 bot.dialog('/basic', [
 	function (session) {
