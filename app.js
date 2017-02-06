@@ -27,6 +27,11 @@ server.post('/api/messages', connector.listen());
 // Activity Events
 //=========================================================
 
+
+//=========================================================
+// Activity Events
+//=========================================================
+
 bot.on('conversationUpdate', function (message) {
    // Check for group conversations
     if (message.address.conversation.isGroup) {
@@ -91,19 +96,18 @@ bot.beginDialogAction('help', '/help', { matches: /^help/i });
 // Bots Dialogs
 //=========================================================
 
-
 bot.dialog('/', [
     function (session) {
         // Send a greeting and show help.
         var card = new builder.HeroCard(session)
-            .title("PP-integrations")
-            .text("Our smartest integration team mate.")
+            .title("Microsoft Bot Framework")
+            .text("Your bots - wherever your users are talking.")
             .images([
-                 builder.CardImage.create(session, "https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_74x46.jpg")
+                 builder.CardImage.create(session, "http://docs.botframework.com/images/demo_bot_image.png")
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
-        session.send("Hi... Welcome to the PayPal Integration's bot (Beta).");
+        session.send("Hi... I'm the Microsoft Bot Framework demo bot for Skype. I can show you everything you can use our Bot Builder SDK to do on Skype.");
         session.beginDialog('/help');
     },
     function (session, results) {
@@ -116,31 +120,14 @@ bot.dialog('/', [
     }
 ]);
 
-// menu
 bot.dialog('/menu', [
     function (session) {
-       // var style = builder.ListStyle[results.response.entity];
-        var style = builder.ListStyle['button'];
-        builder.Prompts.choice(session, "I can help you with integrations, what would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
-        //session.send("Tip of the day: at any point you can say 'help' for more detailed explanation.");
-        //session.beginDialog('/help');
+        builder.Prompts.choice(session, "What demo would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
- 			switch (results.response.entity) {
-            case "Start an integration":
-                session.beginDialog("/basic");
-                break;
-            case "How to..":
-                session.beginDialog("/advanced");
-                break;
-            case "xxxxxxx":
-                session.beginDialog("/customization");
-                break;
-            default:
-                session.beginDialog("/");
-                break;
-        }
+            // Launch demo dialog
+            session.beginDialog('/' + results.response.entity);
         } else {
             // Exit the menu
             session.endDialog();
@@ -152,58 +139,8 @@ bot.dialog('/menu', [
     }
 ]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
 
-
 bot.dialog('/help', [
     function (session) {
         session.endDialog("Global commands that are available anytime:\n\n* menu - Exits a demo and returns to the menu.\n* goodbye - End this conversation.\n* help - Displays these commands.");
     }
 ]);
-
-
-bot.dialog('/basic', [
-	function (session) {
-  //       session.send("That's great %s..\n ", name || ''); TO FIND OUT HOW TO SAVE THE NAME
-  		session.send("That's great!\n ");
-    	 builder.Prompts.choice(session, "Which PayPal product/solution are you looking for?", ["First time integration", "HELP! I have issues!"]); 
-    	},
-    	 function (session, results) {
-        switch (results.response.entity) {
-            case "First time integration":
-                session.replaceDialog("/first");
-                break;
-            case "HELP! I have issues!":
-                session.replaceDialog("/help2");
-                break;
-            default:
-                session.replaceDialog("/");
-                break;
-        }
-    
-
-    }
-]);
-
-bot.dialog('/advanced', [
-	function (session) {
-         session.send("Advanced integration! \n The technical guidelines can be found here: https://developer.paypal.com/docs/integration/direct/express-checkout/integration-jsv4/advanced-integration/");
-    }  
-    ]);  
- bot.dialog('/customization', [
-	function (session) {
-         session.send("You Choose customization! Check the UX guidelines here: ");
-    }
-]);
-
- bot.dialog('/first', [
-	function (session) {
-         session.send("If you are just starting I recommend you to create a test / sandbox account here: http://developer.paypal.com/");
-         session.send("After that you can check some awesome sample code here: GITHUB");
-    }  
-    ]); 
-
-  bot.dialog('/help2', [
-	function (session) {
-         session.send("No Panic! I am here to help you! :) \n Please try the troubleshooting guidance here: LINK");
-         session.send("You can check here the common errors and error codes: LINK");
-    }  
-    ]); 
