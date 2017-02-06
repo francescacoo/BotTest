@@ -98,7 +98,7 @@ bot.dialog('/', [
         session.send(msg);
 
         session.send("Hi... Welcome to the PayPal Integration's bot (Beta).");
-        session.beginDialog('/help');
+ //       session.beginDialog('/help');
     },
     function (session, results) {
         // Display menu
@@ -124,7 +124,9 @@ bot.dialog('/menu', [
     function (session) {
        // var style = builder.ListStyle[results.response.entity];
          var style = builder.ListStyle['button'];
-        builder.Prompts.choice(session, "!I can help you with integrations,  What would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
+        builder.Prompts.choice(session, "I can help you with integrations, what would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
+        session.send("Tip of the day: at any point you can say 'help' for more detailed explanation.");
+        //session.beginDialog('/help');
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
