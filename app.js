@@ -27,9 +27,6 @@ server.post('/api/messages', connector.listen());
 // Activity Events
 //=========================================================
 
-
-
-
 bot.on('conversationUpdate', function (message) {
    // Check for group conversations
     if (message.address.conversation.isGroup) {
@@ -64,7 +61,7 @@ bot.on('contactRelationUpdate', function (message) {
         var name = message.user ? message.user.name : null;
         var reply = new builder.Message()
                 .address(message.address)
-                .text("Hi %s... Welcome to the PayPal Integration's bot (Beta). Say 'hello' to start chatting.", name || 'there');
+                .text("Hello %s... Thanks for adding me. Say 'hello' to see some great demos.", name || 'there');
         bot.send(reply);
     } else {
         // delete their data
@@ -83,15 +80,12 @@ bot.on('deleteUserData', function (message) {
 // Anytime the major version is incremented any existing conversations will be restarted.
 bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
 
-
-
 //=========================================================
 // Bots Global Actions
 //=========================================================
 
 bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 bot.beginDialogAction('help', '/help', { matches: /^help/i });
-
 
 //=========================================================
 // Bots Dialogs
@@ -111,7 +105,6 @@ bot.dialog('/', [
         session.send(msg);
         session.send("Hi... Welcome to the PayPal Integration's bot (Beta).");
         session.beginDialog('/help');
- //       session.beginDialog('/help');
     },
     function (session, results) {
         // Display menu
@@ -123,20 +116,18 @@ bot.dialog('/', [
     }
 ]);
 
-
-
 // menu
 bot.dialog('/menu', [
     function (session) {
        // var style = builder.ListStyle[results.response.entity];
-         var style = builder.ListStyle['button'];
+        var style = builder.ListStyle['button'];
         builder.Prompts.choice(session, "I can help you with integrations, what would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
         session.send("Tip of the day: at any point you can say 'help' for more detailed explanation.");
         //session.beginDialog('/help');
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
- switch (results.response.entity) {
+ 			switch (results.response.entity) {
             case "Start an integration":
                 session.replaceDialog("/basic");
                 break;
