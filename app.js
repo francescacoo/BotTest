@@ -98,6 +98,7 @@ bot.dialog('/', [
         session.send(msg);
 
         session.send("Hi... Welcome to the PayPal Integration's bot (Beta).");
+        session.beginDialog('/menu');
  //       session.beginDialog('/help');
     },
     function (session, results) {
