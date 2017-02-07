@@ -100,37 +100,6 @@ bot.dialog('/', [
     function (session) {
  //       session.send("I can help you with integrations.");
 
-        var style = builder.ListStyle['button'];
-        builder.Prompts.choice(session, "What would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
- 
-        session.beginDialog('/menu');
-     //   session.beginDialog('/help');
-        // Send a greeting and show help.
-        /*
-        var card = new builder.HeroCard(session)
-            .title("PP-Integration")
-            .text("Our smartest integration teammate")
-            .images([
-                 builder.CardImage.create(session, "https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_74x46.jpg")
-            ]);
-        var msg = new builder.Message(session).attachments([card]);
-        session.send(msg);
-        
-        session.beginDialog('/help');
-        */
-    },
-    function (session, results) {
-        // Display menu
-    //    session.beginDialog('/menu');
-    },
-    function (session, results) {
-        // Always say goodbye
-        session.send("Ok... See you later!");
-    }
-]);
-
-bot.dialog('/menu', [
-    function (session) {
     	var style = builder.ListStyle['button'];
         builder.Prompts.choice(session, "What would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
     },
@@ -144,13 +113,12 @@ bot.dialog('/menu', [
         }
     },
     function (session, results) {
-        // The menu runs a loop until the user chooses to (quit).
-        session.replaceDialog('/menu');
-    }
-]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
-
-bot.dialog('/help', [
-    function (session) {
-        session.endDialog("Global commands that are available anytime:\n\n* menu - Exits a demo and returns to the menu.\n* goodbye - End this conversation.\n* help - Displays these commands.");
+        // Display menu
+    //    session.beginDialog('/menu');
+    },
+    function (session, results) {
+        // Always say goodbye
+        session.send("Ok... See you later!");
     }
 ]);
+
