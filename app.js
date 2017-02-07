@@ -99,7 +99,8 @@ bot.beginDialogAction('help', '/help', { matches: /^help/i });
 bot.dialog('/', [
     function (session) {
         session.send("I can help you with integrations.");
-        session.beginDialog('/help');
+        session.beginDialog('/menu');
+     //   session.beginDialog('/help');
         // Send a greeting and show help.
         /*
         var card = new builder.HeroCard(session)
@@ -116,7 +117,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         // Display menu
-        session.beginDialog('/menu');
+    //    session.beginDialog('/menu');
     },
     function (session, results) {
         // Always say goodbye
