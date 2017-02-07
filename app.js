@@ -66,7 +66,7 @@ bot.on('contactRelationUpdate', function (message) {
         var name = message.user ? message.user.name : null;
         var reply = new builder.Message()
                 .address(message.address)
-                .text("Hello %s...!!! Welcome to the PayPal Integration's bot (Beta!). ", name || 'there');
+                .text("Hello %s...!!! Welcome to the PayPal Integration's bot (Beta!). I can help you with integrations.", name || 'there');
         bot.send(reply);
     } else {
         // delete their data
@@ -98,7 +98,7 @@ bot.beginDialogAction('help', '/help', { matches: /^help/i });
 
 bot.dialog('/', [
     function (session) {
-        session.send("I can help you with integrations.");
+ //       session.send("I can help you with integrations.");
         session.beginDialog('/menu');
      //   session.beginDialog('/help');
         // Send a greeting and show help.
