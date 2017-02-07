@@ -66,7 +66,7 @@ bot.on('contactRelationUpdate', function (message) {
         var name = message.user ? message.user.name : null;
         var reply = new builder.Message()
                 .address(message.address)
-                .text("Hello %s...!!! Welcome to the PayPal Integration's bot (Beta!). I can help you with integrations.", name || 'there');
+                .text("Hello %s...!??! Welcome to the PayPal Integration's bot (Beta!). I can help you with integrations.", name || 'there');
         bot.send(reply);
     } else {
         // delete their data
