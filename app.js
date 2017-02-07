@@ -68,6 +68,7 @@ bot.on('contactRelationUpdate', function (message) {
                 .address(message.address)
                 .text("Hello %s...!??! Welcome to the PayPal Integration's bot (Beta!). I can help you with integrations.", name || 'there');
         bot.send(reply);
+        bot.beginDialog('/');
     } else {
         // delete their data
     }
