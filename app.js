@@ -99,6 +99,10 @@ bot.beginDialogAction('help', '/help', { matches: /^help/i });
 bot.dialog('/', [
     function (session) {
  //       session.send("I can help you with integrations.");
+
+        var style = builder.ListStyle['button'];
+        builder.Prompts.choice(session, "What would you like to do?", "Start an integration|How to..|xxxxxxx", { listStyle: style });
+ 
         session.beginDialog('/menu');
      //   session.beginDialog('/help');
         // Send a greeting and show help.
