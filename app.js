@@ -236,25 +236,26 @@ bot.dialog('/integration', [
         }
         switch (kvPair[1]) {
             case '100':
-                session.beginDialog("/Ec-Bespoke");
+                item ="/Ec-Bespoke";
                 break;
             case '101':
-                session.beginDialog("/Ec-Cart");
+                item ="/Ec-Cart";
                 break;
             case '200':
-                session.beginDialog("/Pro-Bespoke");
+                item ="/Pro-Bespoke";
                 break;
             case '201':
-                session.beginDialog("/Pro-Cart");
+                item ="/Pro-Cart";
                 break;
             case '300':
-                session.beginDialog("/BT-Bespoke");
+                item ="/BT-Bespoke";
                 break;
             case '301':
-                session.beginDialog("/BT-Cart");
+                item ="/BT-Cart";
                 break;
         }
-                session.endDialog('You %s "%s"', action, item);
+               // session.endDialog('You %s "%s"', action, item);
+               session.beginDialog(item);
     }  
 ]);
 
