@@ -256,10 +256,7 @@ bot.dialog('/integration', [
         }
     }  
 
-bot.dialog('/Ec-Cart', [
-     function (session) {
-        session.send("Ec-Cart");
-    }
+
 ]);
 
 
