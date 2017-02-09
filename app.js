@@ -195,8 +195,8 @@ bot.dialog('/integration', [
                  ])
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "O"),
-                        builder.CardAction.imBack(session, "select:100", "FAQ")
-                      //  builder.CardAction.imBack(session, "select:101", "FAQ1")
+                        builder.CardAction.imBack(session, "select:100", "FAQ"),
+                        builder.CardAction.imBack(session, "select:101", "FAQ1")
 
                     ]),
                 new builder.HeroCard(session)
