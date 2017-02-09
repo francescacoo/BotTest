@@ -258,6 +258,11 @@ bot.dialog('/integration', [
     }  
 ]);
 
+bot.dialog('/Ec-Bespoke', [
+     function (session) {
+        session.send("Ec-Bespoke");
+    }
+]);
 
 
 
