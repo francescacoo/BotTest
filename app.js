@@ -141,7 +141,7 @@ bot.dialog('/', [
 
 bot.dialog('/menu', [
     function (session) {
-        builder.Prompts.choice(session, "What would you like to do?", "start an integration|How to|xxx|list|carousel|receipt|actions|(quit)");
+        builder.Prompts.choice(session, "What would you like to do?", "start an integration|How to|xxx|(quit)");
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
