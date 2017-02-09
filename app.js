@@ -188,7 +188,7 @@ bot.dialog('/integration', [
             .attachments([
                 new builder.ThumbnailCard(session)
                     .title("Express Checkout")
-                    .text("<b>Express Checkout</b> gives your buyers a simplified checkout experience that keeps them local to your website")
+                    .text("Gives your buyers a simplified checkout experience that keeps them local to your website")
                   .images([
                     builder.CardImage.create(session, "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif")
                           .tap(builder.CardAction.showImage(session, "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif")),
@@ -207,8 +207,9 @@ bot.dialog('/integration', [
                             .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/800px-PikePlaceMarket.jpg")),
                     ])
                     .buttons([
-                        builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Pike_Place_Market", "Wikipedia"),
-                        builder.CardAction.imBack(session, "select:103", "Select")
+                        builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
+                        builder.CardAction.imBack(session, "select:200", "Bespoke"),
+                        builder.CardAction.imBack(session, "select:201", "Cart")
                     ]),
                 new builder.ThumbnailCard(session)
                     .title("Braintree")
@@ -218,8 +219,9 @@ bot.dialog('/integration', [
                             .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Night_Exterior_EMP.jpg/800px-Night_Exterior_EMP.jpg"))
                     ])
                     .buttons([
-                        builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/EMP_Museum", "Wikipedia"),
-                        builder.CardAction.imBack(session, "select:104", "Select")
+                        builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
+                        builder.CardAction.imBack(session, "select:300", "Bespoke"),
+                        builder.CardAction.imBack(session, "select:301", "Cart")
                     ])
             ]);
         builder.Prompts.choice(session, msg, "select:100|select:101|select:102");
