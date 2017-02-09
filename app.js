@@ -201,7 +201,7 @@ bot.dialog('/integration', [
                     ]),
                 new builder.ThumbnailCard(session)
                     .title("Pro")
-                    .text("<b>Pike Place Market</b> is a public market overlooking the Elliott Bay waterfront in Seattle, Washington, United States.")
+                    .text("<b>gives you the flexibility and payment processing security to build a professional-grade ecommerce site.")
                     .images([
                         builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/320px-PikePlaceMarket.jpg")
                             .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/800px-PikePlaceMarket.jpg")),
@@ -213,10 +213,10 @@ bot.dialog('/integration', [
                     ]),
                 new builder.ThumbnailCard(session)
                     .title("Braintree")
-                    .text("<b>EMP Musem</b> is a leading-edge nonprofit museum, dedicated to the ideas and risk-taking that fuel contemporary popular culture.")
+                    .text("Braintree is your payments partner, not just a payments platform.")
                     .images([
-                        builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Night_Exterior_EMP.jpg/320px-Night_Exterior_EMP.jpg")
-                            .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Night_Exterior_EMP.jpg/800px-Night_Exterior_EMP.jpg"))
+                        builder.CardImage.create(session, "https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png")
+                            .tap(builder.CardAction.showImage(session, "https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png"))
                     ])
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
