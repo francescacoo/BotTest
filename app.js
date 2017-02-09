@@ -196,7 +196,6 @@ bot.dialog('/integration', [
                     .buttons([
                         builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Space_Needle", "Wikipedia"),
                         builder.CardAction.imBack(session, "select:100", "Overview")
-                        builder.CardAction.imBack(session, "select:110", "FAQ")
                     ]),
                 new builder.HeroCard(session)
                     .title("Pro")
