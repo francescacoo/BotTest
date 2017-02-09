@@ -186,7 +186,7 @@ bot.dialog('/integration', [
             .textFormat(builder.TextFormat.xml)
             .attachmentLayout(builder.AttachmentLayout.carousel)
             .attachments([
-                new builder.HeroCard(session)
+                new builder.ThumbnailCard(session)
                     .title("Express Checkout")
                     .text("<b>Express Checkout</b> gives your buyers a simplified checkout experience that keeps them local to your website")
                   .images([
