@@ -141,12 +141,26 @@ bot.dialog('/', [
 
 bot.dialog('/menu', [
     function (session) {
-        builder.Prompts.choice(session, "What would you like to do?", "start an integration|How to|xxx|(quit)");
+        builder.Prompts.choice(session, "What would you like to do?", "Start an integration|How to|xxx|(quit)");
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
             // Launch demo dialog
-            session.beginDialog('/' + results.response.entity);
+            switch (results.response.entity) {
+                case "Start an integration":
+                    session.beginDialog("/basic");
+                    break;
+                case "How to..":
+                    session.beginDialog("/advanced");
+                    break;
+                case "xxxxxxx":
+                    session.beginDialog("/customization");
+                    break;
+                default:
+                    session.beginDialog("/");
+                    break;
+            }
+            //session.beginDialog('/' + results.response.entity);
         } else {
             // Exit the menu
             session.endDialog();
