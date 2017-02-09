@@ -146,21 +146,8 @@ bot.dialog('/menu', [
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
             // Launch demo dialog
-            //session.beginDialog('/' + results.response.entity);
-            switch (results.response.entity) {
-            case "Start an integration":
-                session.beginDialog("/integration");
-                break;
-            case "How to..":
-                session.beginDialog("/howto");
-                break;
-            case "xxxxxxx":
-                session.beginDialog("/xxx");
-                break;
-            default:
-                session.beginDialog("/");
-                break;
-        }
+            session.beginDialog('/' + results.response.entity);
+            
 
 
         } else {
