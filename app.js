@@ -141,15 +141,12 @@ bot.dialog('/', [
 
 bot.dialog('/menu', [
     function (session) {
-        builder.Prompts.choice(session, "What would you like to do?", "Start an integration|How to|xxx|(quit)");
+        builder.Prompts.choice(session, "What demo would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
             // Launch demo dialog
             session.beginDialog('/' + results.response.entity);
-            
-
-
         } else {
             // Exit the menu
             session.endDialog();
@@ -169,19 +166,19 @@ bot.dialog('/help', [
 
 bot.dialog('/integration', [
     function (session) {
-        session.endDialog("INTEGRATION");
+        session.send("INTEGRATION");
     }
 ]);
 
 bot.dialog('/howto', [
      function (session) {
-        session.endDialog("HOWTO");
+        session.send("HOWTO");
     }
 ]);
 
 bot.dialog('/xxx', [
      function (session) {
-        session.endDialog("XXX");
+        session.send("XXX");
     }
 ]);
 
