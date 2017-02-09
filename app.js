@@ -201,7 +201,7 @@ bot.dialog('/integration', [
                     ]),
                 new builder.ThumbnailCard(session)
                     .title("Pro")
-                    .text("gives you the flexibility and payment processing security to build a professional-grade ecommerce site.")
+                    .text("gives you the flexibility and security to build a professional ecommerce site.")
                     .images([
                         builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/320px-PikePlaceMarket.jpg")
                             .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/800px-PikePlaceMarket.jpg")),
@@ -213,7 +213,7 @@ bot.dialog('/integration', [
                     ]),
                 new builder.ThumbnailCard(session)
                     .title("Braintree")
-                    .text("Braintree is your payments partner, not just a payments platform.")
+                    .text("is your payments partner, not just a payments platform.")
                     .images([
                         builder.CardImage.create(session, "https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png")
                             .tap(builder.CardAction.showImage(session, "https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png"))
@@ -226,6 +226,45 @@ bot.dialog('/integration', [
             ]);
         builder.Prompts.choice(session, msg, "select:100|select:101|select:102");
     }
+     },
+    function (session, results) {
+        var action, item;
+        var kvPair = results.response.entity.split(':');
+        switch (kvPair[0]) {
+            case 'select':
+                action = 'selected';
+                break;
+        }
+        switch (kvPair[1]) {
+            case '100':
+                session.beginDialog("/Ec-Bespoke");
+                break;
+            case '101':
+                session.beginDialog("/Ec-Cart");
+                break;
+            case '200':
+                session.beginDialog("/Pro-Bespoke");
+                break;
+            case '201':
+                session.beginDialog("/Pro-Cart");
+                break;
+            case '300':
+                session.beginDialog("/BT-Bespoke");
+                break;
+            case '301':
+                session.beginDialog("/BT-Cart");
+                break;
+        }
+    }  
+
+bot.dialog('/Ec-Cart', [
+     function (session) {
+        session.send("Ec-Cart");
+    }
+]);
+
+
+      
 ]);
 
 bot.dialog('/howto', [
