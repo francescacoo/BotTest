@@ -225,7 +225,6 @@ bot.dialog('/integration', [
                     ])
             ]);
         builder.Prompts.choice(session, msg, "select:100|select:101|select:102");
-    }
      },
     function (session, results) {
         var action, item;
