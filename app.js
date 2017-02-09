@@ -255,7 +255,7 @@ bot.dialog('/integration', [
                 break;
         }
                // session.endDialog('You %s "%s"', action, item);
-               session.beginDialog(item);
+               session.beginDialog("/"&item);
     }  
 ]);
 
