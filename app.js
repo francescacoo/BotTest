@@ -126,7 +126,7 @@ bot.dialog('/', [
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
-        session.send("Hi there! :-) Welcome to the PayPal Integration's bot (Beta!). I can help you with integrations.  ");
+        session.send("Hi there! :-) Welcome to the <b>PayPal Integration's bot</b> (Beta!). I can help you with <b>integrations</b>.  ");
         session.beginDialog('/help');
     },
     function (session, results) {
