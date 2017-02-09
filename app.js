@@ -264,35 +264,7 @@ bot.dialog('/Ec-Bespoke', [
     }
 ]);
 
-bot.dialog('/Ec-Cart', [
-     function (session) {
-        session.send("Ec-Ec-Cart");
-    }
-]);
 
-bot.dialog('/Ec-Cart', [
-     function (session) {
-        session.send("Pro-Bespoke");
-    }
-]);
-
-bot.dialog('/Ec-Cart', [
-     function (session) {
-        session.send("Pro-Cart");
-    }
-]);
-
-bot.dialog('/Ec-Cart', [
-     function (session) {
-        session.send("BT-Bespoke");
-    }
-]);
-
-bot.dialog('/BT-Cart', [
-     function (session) {
-        session.send("BT-Cart");
-    }
-]);
 
 bot.dialog('/howto', [
      function (session) {
