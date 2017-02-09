@@ -141,12 +141,28 @@ bot.dialog('/', [
 
 bot.dialog('/menu', [
     function (session) {
-        builder.Prompts.choice(session, "What demo would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");
+        builder.Prompts.choice(session, "What would you like to do?", "Start an integration|How to|xxx||(quit)");
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
             // Launch demo dialog
-            session.beginDialog('/' + results.response.entity);
+            //session.beginDialog('/' + results.response.entity);
+            switch (results.response.entity) {
+            case "Start an integration":
+                session.beginDialog("/integration");
+                break;
+            case "How to..":
+                session.beginDialog("/howto");
+                break;
+            case "xxxxxxx":
+                session.beginDialog("/xxx");
+                break;
+            default:
+                session.beginDialog("/");
+                break;
+        }
+
+
         } else {
             // Exit the menu
             session.endDialog();
@@ -163,6 +179,26 @@ bot.dialog('/help', [
         session.endDialog("Global commands that are available anytime:\n\n* menu - Exits a demo and returns to the menu.\n* goodbye - End this conversation.\n* help - Displays these commands.");
     }
 ]);
+
+bot.dialog('/integration', [
+    function (session) {
+        session.endDialog("INTEGRATION");
+    }
+]);
+
+bot.dialog('/howto', [
+     function (session) {
+        session.endDialog("HOWTO");
+    }
+]);
+
+bot.dialog('/xxx', [
+     function (session) {
+        session.endDialog("XXX");
+    }
+]);
+
+
 
 bot.dialog('/prompts', [
     function (session) {
