@@ -199,7 +199,7 @@ bot.dialog('/integration', [
                         builder.CardAction.imBack(session, "select:101", "Cart")
 
                     ]),
-                new builder.HeroCard(session)
+                new builder.ThumbnailCard(session)
                     .title("Pro")
                     .text("<b>Pike Place Market</b> is a public market overlooking the Elliott Bay waterfront in Seattle, Washington, United States.")
                     .images([
@@ -210,7 +210,7 @@ bot.dialog('/integration', [
                         builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Pike_Place_Market", "Wikipedia"),
                         builder.CardAction.imBack(session, "select:103", "Select")
                     ]),
-                new builder.HeroCard(session)
+                new builder.ThumbnailCard(session)
                     .title("Braintree")
                     .text("<b>EMP Musem</b> is a leading-edge nonprofit museum, dedicated to the ideas and risk-taking that fuel contemporary popular culture.")
                     .images([
