@@ -188,7 +188,7 @@ bot.dialog('/integration', [
             .attachments([
                 new builder.HeroCard(session)
                     .title("Express Checkout")
-                    .text("The <b>Space Needle</b> is an observation tower in Seattle.")
+                    .text("The <b>Space Needle</b> is an observation ")
        //             .images([
        //                 builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/320px-Seattlenighttimequeenanne.jpg")
        //                     .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/800px-Seattlenighttimequeenanne.jpg")),
@@ -196,7 +196,7 @@ bot.dialog('/integration', [
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
                         builder.CardAction.imBack(session, "select:100", "FAQ")
-
+builder.CardAction.imBack(session, "select:101", "FAQ1")
 
                     ]),
                 new builder.HeroCard(session)
