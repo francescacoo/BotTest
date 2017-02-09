@@ -142,7 +142,7 @@ bot.dialog('/', [
 bot.dialog('/menu', [
     function (session) {
         var style = builder.ListStyle['button'];
-        builder.Prompts.choice(session, "What would you like to do?", "Start an integration|How to..|xxx|(quit)", { listStyle: style });
+        builder.Prompts.choice(session, "What would you like to do?", "Start an integration|Customization|How to..|xxx|(quit)", { listStyle: style });
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
@@ -188,17 +188,15 @@ bot.dialog('/integration', [
             .attachments([
                 new builder.HeroCard(session)
                     .title("Express Checkout")
-                    .text("The <b>Space Needle</b> is an observation ")
+                    .text("<b>Express Checkout</b> gives your buyers a simplified checkout experience that keeps them local to your website")
                   .images([
-                    builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/320px-Seattlenighttimequeenanne.jpg")
-                          .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/800px-Seattlenighttimequeenanne.jpg")),
+                    builder.CardImage.create(session, "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif")
+                          .tap(builder.CardAction.showImage(session, "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif")),
                  ])
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
-                        builder.CardAction.imBack(session, "select:100", "FAQ"),
-                        builder.CardAction.imBack(session, "select:101", "Bespoke"),
-                        builder.CardAction.imBack(session, "select:102", "Cart"),
-                        builder.CardAction.imBack(session, "select:103", "Customization")
+                        builder.CardAction.imBack(session, "select:100", "Bespoke"),
+                        builder.CardAction.imBack(session, "select:101", "Cart")
 
                     ]),
                 new builder.HeroCard(session)
