@@ -264,8 +264,7 @@ bot.dialog('/Ec-Cart', [
 ]);
 
 
-      
-]);
+
 
 bot.dialog('/howto', [
      function (session) {
