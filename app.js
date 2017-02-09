@@ -188,7 +188,7 @@ bot.dialog('/integration', [
             .attachments([
                 new builder.HeroCard(session)
                     .title("Express Checkout")
-                    .text("The <b>Space Needle</b> is an observation tower in Seattle, Washington, a landmark of the Pacific Northwest, and an icon of Seattle.")
+                    .text("The <b>Space Needle</b> is an observation tower in Seattle.")
                     .images([
                         builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/320px-Seattlenighttimequeenanne.jpg")
                             .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/800px-Seattlenighttimequeenanne.jpg")),
@@ -196,6 +196,8 @@ bot.dialog('/integration', [
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
                         builder.CardAction.imBack(session, "select:100", "FAQ")
+                        builder.CardAction.imBack(session, "select:101", "Bespoke Integration")
+                        builder.CardAction.imBack(session, "select:102", "Cart Integration")
 
                     ]),
                 new builder.HeroCard(session)
@@ -207,7 +209,7 @@ bot.dialog('/integration', [
                     ])
                     .buttons([
                         builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Pike_Place_Market", "Wikipedia"),
-                        builder.CardAction.imBack(session, "select:101", "Select")
+                        builder.CardAction.imBack(session, "select:103", "Select")
                     ]),
                 new builder.HeroCard(session)
                     .title("Braintree")
@@ -218,7 +220,7 @@ bot.dialog('/integration', [
                     ])
                     .buttons([
                         builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/EMP_Museum", "Wikipedia"),
-                        builder.CardAction.imBack(session, "select:102", "Select")
+                        builder.CardAction.imBack(session, "select:104", "Select")
                     ])
             ]);
         builder.Prompts.choice(session, msg, "select:100|select:101|select:102");
