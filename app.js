@@ -271,19 +271,19 @@ bot.dialog('/Ec-Cart', [
     }
 ]);
 
-bot.dialog('/Ec-Cart', [
+bot.dialog('/Pro-Bespok', [
      function (session) {
         session.send("Pro-Bespoke");
     }
 ]);
 
-bot.dialog('/Ec-Cart', [
+bot.dialog('/Pro-Cart', [
      function (session) {
         session.send("Pro-Cart");
     }
 ]);
 
-bot.dialog('/Ec-Cart', [
+bot.dialog('/BT-Bespoke', [
      function (session) {
         session.send("BT-Bespoke");
     }
