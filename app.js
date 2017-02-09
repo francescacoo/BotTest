@@ -148,13 +148,13 @@ bot.dialog('/menu', [
             // Launch demo dialog
             switch (results.response.entity) {
                 case "Start an integration":
-                    session.beginDialog("/basic");
+                    session.beginDialog("/integration");
                     break;
                 case "How to..":
-                    session.beginDialog("/advanced");
+                    session.beginDialog("/howto");
                     break;
-                case "xxxxxxx":
-                    session.beginDialog("/customization");
+                case "xxx":
+                    session.beginDialog("/xxx");
                     break;
                 default:
                     session.beginDialog("/");
