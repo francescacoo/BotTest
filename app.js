@@ -194,8 +194,9 @@ bot.dialog('/integration', [
                             .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/800px-Seattlenighttimequeenanne.jpg")),
                     ])
                     .buttons([
-                        builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Space_Needle", "Wikipedia"),
-                        builder.CardAction.imBack(session, "select:100", "Overview")
+                        builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
+                        builder.CardAction.imBack(session, "select:100", "FAQ")
+
                     ]),
                 new builder.HeroCard(session)
                     .title("Pro")
