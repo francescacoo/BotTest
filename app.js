@@ -175,7 +175,7 @@ bot.dialog('/menu', [
 
 bot.dialog('/help', [
     function (session) {
-        session.endDialog("Global commands that are available anytime:\n\n* menu - Exits a demo and returns to the menu.\n* goodbye - End this conversation.\n* help - Displays these commands.");
+        session.endDialog("Global commands that are available anytime:\n\n* <i>menu - Exits a demo and returns to the menu.\n* goodbye - End this conversation.\n* help - Displays these commands.</i>");
     }
 ]);
 
@@ -201,7 +201,7 @@ bot.dialog('/integration', [
                     ]),
                 new builder.ThumbnailCard(session)
                     .title("Pro")
-                    .text("<b>gives you the flexibility and payment processing security to build a professional-grade ecommerce site.")
+                    .text("gives you the flexibility and payment processing security to build a professional-grade ecommerce site.")
                     .images([
                         builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/320px-PikePlaceMarket.jpg")
                             .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/800px-PikePlaceMarket.jpg")),
