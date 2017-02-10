@@ -370,7 +370,7 @@ bot.dialog('/Magento-1-EC', [
             }]);
         session.send(msg);
         var style = builder.ListStyle['button'];
-        builder.Prompts.choice(session, "", "Next|Customization|How to..|xxx|(quit)", { listStyle: style });
+        builder.Prompts.choice(session, "", "Next", { listStyle: style });
     },
     function (session, results) {
         session.send("You entered '%s'", results.response);
