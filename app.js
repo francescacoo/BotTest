@@ -369,7 +369,8 @@ bot.dialog('/Magento-1-EC', [
                 contentUrl: "http://www.jfbdevs.com/bot/magento1images/step1.jpg"
             }]);
         session.send(msg);
-       builder.Prompts.choice(session, msg,"next|next");
+        var style = builder.ListStyle['button'];
+        builder.Prompts.choice(session, "", "Next|Customization|How to..|xxx|(quit)", { listStyle: style });
     },
     function (session, results) {
         session.send("You entered '%s'", results.response);
