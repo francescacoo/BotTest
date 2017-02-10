@@ -403,7 +403,7 @@ bot.dialog('/Magento-1-EC', [
             }]);
         session.send(msg);
 
-        session.send("Tip: 8-| If you want to retrieve your API credentials from the PayPal account follow this video: https://www.youtube.com/watch?v=KkwZ0K1WgsQ \n \nLeave Sandbox Mode in “No” and Enable this Solution \“Yes\”.");
+        session.send("<b>Tip:</b> 8-| <i>If you want to retrieve your API credentials from the PayPal account follow this video: https://www.youtube.com/watch?v=KkwZ0K1WgsQ </i> \n \nLeave Sandbox Mode in “No” and Enable this Solution \“Yes\”.");
 
 
         var style = builder.ListStyle['button'];
@@ -421,7 +421,28 @@ bot.dialog('/Magento-1-EC', [
         var style = builder.ListStyle['button'];
         builder.Prompts.choice(session, "", "Next", { listStyle: style });
     },
-    
+        function (session, results) {
+        session.send("For a better user experience we recommend you to display the website logo in the PayPal Payment Page. You can do this under Frontend Experience Settings, please provide the logo URL in the field “Header Image URL” using HTTPS and 190x60 with JPG/GIF/PNG.\n");
+            var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/jpeg",
+                contentUrl: "http://www.jfbdevs.com/bot/magento1images/step6.jpg"
+            }]);
+        session.send(msg);
+
+        var style = builder.ListStyle['button'];
+        builder.Prompts.choice(session, "", "Next", { listStyle: style });
+    },
+            function (session, results) {
+        session.send("Last step! Just click in Save Config (top-right orange button) and PayPal Express Checkout should appear already as a payment method in your checkout (and also the PayPal shortcut if it’s enabled).\n\n<b>Recommendation(wait):</b> <i>please try a live test and ensure that it’s working as expected. Ensure that the payment went through and you can see it in your PayPal account and also the new order in your Magento > Sales.</i>\n\n\n");
+        var style = builder.ListStyle['button'];
+        builder.Prompts.choice(session, "I hope you liked my assistance :-). Do you need more help?", "No Thanks!|Yes, please", { listStyle: style });
+
+    },
+                function (session, results) {
+session.send("Ok cool! Please help me to improve by filling the following survey: \n\nhttp://surveyurl.com\n\nGoodbye! :-) (hi)");
+
+                }
 ]);
 
 
