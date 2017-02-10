@@ -256,14 +256,15 @@ bot.dialog('/integration', [
         }
                // session.endDialog('You %s "%s"', action, item);
                session.beginDialog(item);
-    }  
-]);
-
-bot.dialog('/Ec-Bespoke', [
+    } 
+    bot.dialog('/Ec-Bespoke', [
      function (session) {
         session.send("Ec-Bespoke");
     }
+]); 
 ]);
+
+
 
 bot.dialog('/Ec-Cart', [
      function (session) {
@@ -271,7 +272,7 @@ bot.dialog('/Ec-Cart', [
     }
 ]);
 
-bot.dialog('/Pro-Bespok', [
+bot.dialog('/Pro-Bespoke', [
      function (session) {
         session.send("Pro-Bespoke");
     }
