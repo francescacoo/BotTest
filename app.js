@@ -286,7 +286,7 @@ bot.dialog('/Ec-Cart', [
             .attachments([
                 new builder.ThumbnailCard(session)
                     .title("Magento")
-                    .text("G")
+                    .text("")
                   .images([
                     builder.CardImage.create(session, "http://freevectorlogo.net/wp-content/uploads/2012/10/magento-logo-vector.png")
                           .tap(builder.CardAction.showImage(session, "http://freevectorlogo.net/wp-content/uploads/2012/10/magento-logo-vector.png")),
@@ -369,7 +369,12 @@ bot.dialog('/Magento-1-EC', [
                 contentUrl: "http://www.jfbdevs.com/bot/magento1images/step1.jpg"
             }]);
         session.send(msg);
-
+       builder.Prompts.choice(session, "next");
+    },
+    function (session, results) {
+        session.send("You entered '%s'", results.response);
+        builder.Prompts.choice(session, "next");
+    }
 
     }
 ]);
