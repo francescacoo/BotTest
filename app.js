@@ -286,15 +286,16 @@ bot.dialog('/Ec-Cart', [
             .attachments([
                 new builder.ThumbnailCard(session)
                     .title("Magento")
-        //            .text("Gives your buyers a simplified checkout experience that keeps them local to your website")
+                    .text("G")
                   .images([
                     builder.CardImage.create(session, "http://freevectorlogo.net/wp-content/uploads/2012/10/magento-logo-vector.png")
                           .tap(builder.CardAction.showImage(session, "http://freevectorlogo.net/wp-content/uploads/2012/10/magento-logo-vector.png")),
                  ])
                     .buttons([
 //                        builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
-                        builder.CardAction.imBack(session, "select:100", "Bespoke"),
-                        builder.CardAction.imBack(session, "select:101", "Cart")
+                        builder.CardAction.imBack(session, "select:100", "2.x"),
+                        builder.CardAction.imBack(session, "select:101", "1.7-1.9"),
+                        builder.CardAction.imBack(session, "select:101", "Older")
 
                     ]),
                 new builder.ThumbnailCard(session)
@@ -323,6 +324,7 @@ bot.dialog('/Ec-Cart', [
                     ])
             ]);
         builder.Prompts.choice(session, msg, "select:100|select:101|select:200|select:201|select:300|select:301");
+        session.send("<b>Tip: Dont know the cart version?</b>\n<i>Tip: To check your platform version please log into your admin and normally the version is advised at the top or bottom of the page. Otherwise please check in your cart website or in Google \"how to check the version of \"+ cart name.</i>");
      },
     function (session, results) {
         var action, item;
