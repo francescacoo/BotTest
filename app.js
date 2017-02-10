@@ -179,6 +179,16 @@ bot.dialog('/help', [
     }
 ]);
 
+
+
+
+
+//=========================================================
+// INTEGRATION dialogs!
+//=========================================================
+
+
+
 bot.dialog('/integration', [
     function (session) {
 // Ask the user to select an item from a carousel.
@@ -257,19 +267,94 @@ bot.dialog('/integration', [
                // session.endDialog('You %s "%s"', action, item);
                session.beginDialog(item);
     } 
-    bot.dialog('/Ec-Bespoke', [
+
+]);
+
+bot.dialog('/Ec-Bespoke', [
      function (session) {
         session.send("Ec-Bespoke");
     }
 ]); 
-]);
-
-
 
 bot.dialog('/Ec-Cart', [
-     function (session) {
-        session.send("Ec-Cart");
-    }
+ function (session) {
+ 	session.send("Express Checkout Cart. Ok then, and which cart are you using?");
+// Ask the user to select an item from a carousel.
+        var msg = new builder.Message(session)
+            .textFormat(builder.TextFormat.xml)
+            .attachmentLayout(builder.AttachmentLayout.carousel)
+            .attachments([
+                new builder.ThumbnailCard(session)
+                    .title("Magento")
+        //            .text("Gives your buyers a simplified checkout experience that keeps them local to your website")
+                  .images([
+                    builder.CardImage.create(session, "http://freevectorlogo.net/wp-content/uploads/2012/10/magento-logo-vector.png")
+                          .tap(builder.CardAction.showImage(session, "http://freevectorlogo.net/wp-content/uploads/2012/10/magento-logo-vector.png")),
+                 ])
+                    .buttons([
+//                        builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
+                        builder.CardAction.imBack(session, "select:100", "Bespoke"),
+                        builder.CardAction.imBack(session, "select:101", "Cart")
+
+                    ]),
+                new builder.ThumbnailCard(session)
+                    .title("WooCommerce")
+                    .text("gives you the flexibility and security to build a professional ecommerce site.")
+                    .images([
+                        builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/320px-PikePlaceMarket.jpg")
+                            .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/800px-PikePlaceMarket.jpg")),
+                    ])
+                    .buttons([
+                        builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
+                        builder.CardAction.imBack(session, "select:200", "Bespoke"),
+                        builder.CardAction.imBack(session, "select:201", "Cart")
+                    ]),
+                new builder.ThumbnailCard(session)
+                    .title("Shopify")
+                    .text("is your payments partner, not just a payments platform.")
+                    .images([
+                        builder.CardImage.create(session, "https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png")
+                            .tap(builder.CardAction.showImage(session, "https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png"))
+                    ])
+                    .buttons([
+                        builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
+                        builder.CardAction.imBack(session, "select:300", "Bespoke"),
+                        builder.CardAction.imBack(session, "select:301", "Cart")
+                    ])
+            ]);
+        builder.Prompts.choice(session, msg, "select:100|select:101|select:200|select:201|select:300|select:301");
+     },
+    function (session, results) {
+        var action, item;
+        var kvPair = results.response.entity.split(':');
+        switch (kvPair[0]) {
+            case 'select':
+                action = 'selected';
+                break;
+        }
+        switch (kvPair[1]) {
+            case '100':
+                item ="/Ec-Bespoke";
+                break;
+            case '101':
+                item ="/Ec-Cart";
+                break;
+            case '200':
+                item ="/Pro-Bespoke";
+                break;
+            case '201':
+                item ="/Pro-Cart";
+                break;
+            case '300':
+                item ="/BT-Bespoke";
+                break;
+            case '301':
+                item ="/BT-Cart";
+                break;
+        }
+               // session.endDialog('You %s "%s"', action, item);
+               session.beginDialog(item);
+    } 
 ]);
 
 bot.dialog('/Pro-Bespoke', [
@@ -295,6 +380,13 @@ bot.dialog('/BT-Cart', [
         session.send("BT-Cart");
     }
 ]);
+
+
+
+//=========================================================
+// END INTEGRATION dialogs!
+//=========================================================
+
 
 bot.dialog('/howto', [
      function (session) {
