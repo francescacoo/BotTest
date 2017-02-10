@@ -403,13 +403,24 @@ bot.dialog('/Magento-1-EC', [
             }]);
         session.send(msg);
 
-        session.send("Tip:8-| If you want to retrieve your API credentials from the PayPal account follow this video: https://www.youtube.com/watch?v=KkwZ0K1WgsQ Leave Sandbox Mode in “No” and Enable this Solution \“Yes\”.");
+        session.send("Tip: 8-| If you want to retrieve your API credentials from the PayPal account follow this video: https://www.youtube.com/watch?v=KkwZ0K1WgsQ \n \nLeave Sandbox Mode in “No” and Enable this Solution \“Yes\”.");
 
 
         var style = builder.ListStyle['button'];
         builder.Prompts.choice(session, "", "Next", { listStyle: style });
     },
+    function (session, results) {
+        session.send("Under the Basic Settings you can customize the payment, please pay attention to the following fields:\n\n- Title: text that will display in the checkout.\n- Payment Action: select “Sale” for a one-off payment or “Authorization” for capture later the funds.\n- Shortcut on Shopping cart: display the PayPal button in your shopping cart for fast checkouts.\n- Shortcut on Product View: display the PayPal button in the product page for fast checkouts.\n- Debug mode: “Yes” to store all communications.\n- Enable SSL verification: “No”.\n- Transfer Cart Line Items: “Yes”.\n- Transfer Shipping Options: “No”.\n");
+            var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/jpeg",
+                contentUrl: "http://www.jfbdevs.com/bot/magento1images/step5.jpg"
+            }]);
+        session.send(msg);
 
+        var style = builder.ListStyle['button'];
+        builder.Prompts.choice(session, "", "Next", { listStyle: style });
+    },
     
 ]);
 
