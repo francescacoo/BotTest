@@ -205,7 +205,7 @@ bot.dialog('/integration', [
                  ])
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
-                        builder.CardAction.imBack(session, "select:100", "Bespoke"),
+                        builder.CardAction.imBack(session, "100", "Bespoke"),
                         builder.CardAction.imBack(session, "EcCart", "Cart")
 
                     ]),
@@ -218,8 +218,8 @@ bot.dialog('/integration', [
                     ])
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
-                        builder.CardAction.imBack(session, "select:200", "Bespoke"),
-                        builder.CardAction.imBack(session, "select:201", "Cart")
+                        builder.CardAction.imBack(session, "200", "Bespoke"),
+                        builder.CardAction.imBack(session, "201", "Cart")
                     ]),
                 new builder.ThumbnailCard(session)
                     .title("Braintree")
@@ -230,8 +230,8 @@ bot.dialog('/integration', [
                     ])
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
-                        builder.CardAction.imBack(session, "select:300", "Bespoke"),
-                        builder.CardAction.imBack(session, "select:301", "Cart")
+                        builder.CardAction.imBack(session, "300", "Bespoke"),
+                        builder.CardAction.imBack(session, "301", "Cart")
                     ])
             ]);
         builder.Prompts.choice(session, msg, "select:100|EcCart|select:200|select:201|select:300|select:301");
