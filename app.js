@@ -206,7 +206,7 @@ bot.dialog('/integration', [
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
                         builder.CardAction.imBack(session, "select:100", "Bespoke"),
-                        builder.CardAction.imBack(session, "select:Ec Cart", "Cart")
+                        builder.CardAction.imBack(session, "select:EcCart", "Cart")
 
                     ]),
                 new builder.ThumbnailCard(session)
@@ -234,7 +234,7 @@ bot.dialog('/integration', [
                         builder.CardAction.imBack(session, "select:301", "Cart")
                     ])
             ]);
-        builder.Prompts.choice(session, msg, "select:100|select:Ec Cart|select:200|select:201|select:300|select:301");
+        builder.Prompts.choice(session, msg, "select:100|select:EcCart|select:200|select:201|select:300|select:301");
      },
     function (session, results) {
         var action, item;
@@ -248,7 +248,7 @@ bot.dialog('/integration', [
             case '100':
                 item ="/Ec-Bespoke";
                 break;
-            case 'Ec Cart':
+            case 'EcCart':
                 item ="/Ec-Cart";
                 break;
             case '200':
