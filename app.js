@@ -403,7 +403,7 @@ bot.dialog('/Magento-1-EC', [
             }]);
         session.send(msg);
 
-        session.send("Tip: If you want to retrieve your API credentials from the PayPal account follow this video: https://www.youtube.com/watch?v=KkwZ0K1WgsQ Leave Sandbox Mode in “No” and Enable this Solution \“Yes\”.");
+        session.send("Tip:8-| If you want to retrieve your API credentials from the PayPal account follow this video: https://www.youtube.com/watch?v=KkwZ0K1WgsQ Leave Sandbox Mode in “No” and Enable this Solution \“Yes\”.");
 
 
         var style = builder.ListStyle['button'];
