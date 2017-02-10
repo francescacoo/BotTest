@@ -234,7 +234,7 @@ bot.dialog('/integration', [
                         builder.CardAction.imBack(session, "select:301", "Cart")
                     ])
             ]);
-        builder.Prompts.choice(session, msg, "select:100|select:EcCart|select:200|select:201|select:300|select:301");
+        builder.Prompts.choice(session, msg, "select:100|EcCart|select:200|select:201|select:300|select:301");
      },
     function (session, results) {
         var item;
