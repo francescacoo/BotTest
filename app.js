@@ -300,27 +300,27 @@ bot.dialog('/Ec-Cart', [
                     ]),
                 new builder.ThumbnailCard(session)
                     .title("WooCommerce")
-                    .text("gives you the flexibility and security to build a professional ecommerce site.")
+                    .text("")
                     .images([
-                        builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/320px-PikePlaceMarket.jpg")
-                            .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/800px-PikePlaceMarket.jpg")),
+                        builder.CardImage.create(session, "http://www.gfxmag.com/wp-content/uploads/2016/07/woocommerce-vector-logo.png")
+                            .tap(builder.CardAction.showImage(session, "http://www.gfxmag.com/wp-content/uploads/2016/07/woocommerce-vector-logo.png")),
                     ])
                     .buttons([
-                        builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
-                        builder.CardAction.imBack(session, "select:200", "Bespoke"),
-                        builder.CardAction.imBack(session, "select:201", "Cart")
+                        builder.CardAction.imBack(session, "select:100", "2.x"),
+                        builder.CardAction.imBack(session, "select:101", "1.7-1.9"),
+                        builder.CardAction.imBack(session, "select:101", "Older")
                     ]),
                 new builder.ThumbnailCard(session)
                     .title("Shopify")
                     .text("is your payments partner, not just a payments platform.")
                     .images([
-                        builder.CardImage.create(session, "https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png")
-                            .tap(builder.CardAction.showImage(session, "https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png"))
+                        builder.CardImage.create(session, "http://cdn-blog.cpcstrategy.com/wp-content/uploads/2015/09/shopify.jpg")
+                            .tap(builder.CardAction.showImage(session, "http://cdn-blog.cpcstrategy.com/wp-content/uploads/2015/09/shopify.jpg"))
                     ])
                     .buttons([
-                        builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
-                        builder.CardAction.imBack(session, "select:300", "Bespoke"),
-                        builder.CardAction.imBack(session, "select:301", "Cart")
+                        builder.CardAction.imBack(session, "select:100", "2.x"),
+                        builder.CardAction.imBack(session, "select:101", "1.7-1.9"),
+                        builder.CardAction.imBack(session, "select:101", "Older")
                     ])
             ]);
         builder.Prompts.choice(session, msg, "select:100|select:101|select:200|select:201|select:300|select:301");
