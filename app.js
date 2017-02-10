@@ -376,7 +376,7 @@ bot.dialog('/Magento-1-EC', [
         builder.Prompts.choice(session, "next");
     }
 
-    }
+    
 ]);
 
 
