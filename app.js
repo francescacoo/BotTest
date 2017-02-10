@@ -323,8 +323,9 @@ bot.dialog('/Ec-Cart', [
                         builder.CardAction.imBack(session, "select:101", "Older")
                     ])
             ]);
-        builder.Prompts.choice(session, msg, "select:100|select:101|select:200|select:201|select:300|select:301");
+
         session.send("<b>Tip: Dont know the cart version?</b>\n<i>To check your platform version please log into your admin and normally the version is advised at the top or bottom of the page. Otherwise please check in your cart website or in Google \"how to check the version of \"+ cart name.</i>");
+  		        builder.Prompts.choice(session, msg, "select:100|select:101|select:200|select:201|select:300|select:301");
      },
     function (session, results) {
         var action, item;
