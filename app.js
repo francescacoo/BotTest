@@ -368,7 +368,7 @@ bot.dialog('/Magento-1-EC', [
                 contentType: "image/jpeg",
                 contentUrl: "http://www.jfbdevs.com/bot/magento1images/step1.jpg"
             }]);
-        session.endDialog(msg);
+        session.send(msg);
 
 
     }
