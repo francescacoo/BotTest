@@ -363,6 +363,14 @@ bot.dialog('/Ec-Cart', [
 bot.dialog('/Magento-1-EC', [
      function (session) {
         session.send("To enable Express Checkout in Magento 1.9.x you need to log into your admin panel and then go to System > Configuration > Payment Methods.");
+               var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/jpeg",
+                contentUrl: "http://www.jfbdevs.com/bot/magento1images/step1.png"
+            }]);
+        session.endDialog(msg);
+
+
     }
 ]);
 
