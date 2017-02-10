@@ -206,7 +206,7 @@ bot.dialog('/integration', [
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
                         builder.CardAction.imBack(session, "select:100", "Bespoke"),
-                        builder.CardAction.imBack(session, "select:101", "Cart")
+                        builder.CardAction.imBack(session, "Ec Cart", "Cart")
 
                     ]),
                 new builder.ThumbnailCard(session)
@@ -248,7 +248,7 @@ bot.dialog('/integration', [
             case '100':
                 item ="/Ec-Bespoke";
                 break;
-            case '101':
+            case 'Ec Cart':
                 item ="/Ec-Cart";
                 break;
             case '200':
@@ -434,7 +434,7 @@ bot.dialog('/Magento-1-EC', [
         builder.Prompts.choice(session, "", "Next", { listStyle: style });
     },
             function (session, results) {
-        session.send("Last step! Just click in Save Config (top-right orange button) and PayPal Express Checkout should appear already as a payment method in your checkout (and also the PayPal shortcut if it’s enabled).\n\n<b>Recommendation(wait):</b> <i>please try a live test and ensure that it’s working as expected. Ensure that the payment went through and you can see it in your PayPal account and also the new order in your Magento > Sales.</i>\n\n\n");
+        session.send("Last step! Just click in Save Config (top-right orange button) and PayPal Express Checkout should appear already as a payment method in your checkout (and also the PayPal shortcut if it’s enabled).\n\n <b>Recommendation(wait):</b> <i>please try a live test and ensure that it’s working as expected. Ensure that the payment went through and you can see it in your PayPal account and also the new order in your Magento > Sales.</i>\n\n\n");
         var style = builder.ListStyle['button'];
         builder.Prompts.choice(session, "I hope you liked my assistance :-). Do you need more help?", "No Thanks!|Yes, please", { listStyle: style });
 
