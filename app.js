@@ -278,7 +278,7 @@ bot.dialog('/Ec-Bespoke', [
 
 bot.dialog('/Ec-Cart', [
  function (session) {
- 	session.send("Express Checkout Cart. Ok then, and which cart are you using?");
+    session.send("Express Checkout Cart. Ok then, and which cart are you using?");
 // Ask the user to select an item from a carousel.
         var msg = new builder.Message(session)
             .textFormat(builder.TextFormat.xml)
@@ -325,7 +325,7 @@ bot.dialog('/Ec-Cart', [
             ]);
 
         session.send("<b>Tip: Dont know the cart version?</b>\n<i>To check your platform version please log into your admin and normally the version is advised at the top or bottom of the page. Otherwise please check in your cart website or in Google \"how to check the version of \"+ cart name.</i>");
-  		        builder.Prompts.choice(session, msg, "select:100|select:101|select:200|select:201|select:300|select:301");
+                builder.Prompts.choice(session, msg, "select:100|select:101|select:200|select:201|select:300|select:301");
      },
     function (session, results) {
         var action, item;
@@ -373,9 +373,21 @@ bot.dialog('/Magento-1-EC', [
         builder.Prompts.choice(session, "", "Next", { listStyle: style });
     },
     function (session, results) {
-        session.send("You entered '%s'", results.response);
+        session.send("Please ensure that Merchant Country selection is correct.");
+            var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/jpeg",
+                contentUrl: "http://www.jfbdevs.com/bot/magento1images/step2.jpg"
+            }]);
+        session.send(msg);
+        var style = builder.ListStyle['button'];
+        builder.Prompts.choice(session, "", "Next", { listStyle: style });
+    },
+    function (session, results) {
+        session.send("Open the configuration of PayPal Express Checkout.");
         builder.Prompts.choice(session, "next");
     }
+
 
     
 ]);
