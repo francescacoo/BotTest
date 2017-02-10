@@ -384,10 +384,31 @@ bot.dialog('/Magento-1-EC', [
         builder.Prompts.choice(session, "", "Next", { listStyle: style });
     },
     function (session, results) {
-        session.send("Open the configuration of PayPal Express Checkout.");
-        builder.Prompts.choice(session, "next");
-    }
+                session.send("Open the configuration of PayPal Express Checkout.");
+ var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/jpeg",
+                contentUrl: "http://www.jfbdevs.com/bot/magento1images/step3.jpg"
+            }]);
+        session.send(msg);
+        var style = builder.ListStyle['button'];
+        builder.Prompts.choice(session, "", "Next", { listStyle: style });
+    },
+    function (session, results) {
+        session.send("Enter your verified PayPal Merchant Email and in API Authentication Methods select API Signature \nFor the API username, password and signature you can click on “Get Credentials” or copy&paste from your account.");
+            var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/jpeg",
+                contentUrl: "http://www.jfbdevs.com/bot/magento1images/step4.jpg"
+            }]);
+        session.send(msg);
 
+        session.send("Tip: If you want to retrieve your API credentials from the PayPal account follow this video: https://www.youtube.com/watch?v=KkwZ0K1WgsQ Leave Sandbox Mode in “No” and Enable this Solution \“Yes\”.");
+
+
+        var style = builder.ListStyle['button'];
+        builder.Prompts.choice(session, "", "Next", { listStyle: style });
+    },
 
     
 ]);
