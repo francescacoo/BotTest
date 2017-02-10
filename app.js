@@ -369,7 +369,7 @@ bot.dialog('/Magento-1-EC', [
                 contentUrl: "http://www.jfbdevs.com/bot/magento1images/step1.jpg"
             }]);
         session.send(msg);
-       builder.Prompts.choice(session, "next");
+       builder.Prompts.choice(session, msg,"next|next");
     },
     function (session, results) {
         session.send("You entered '%s'", results.response);
