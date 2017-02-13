@@ -122,7 +122,7 @@ bot.dialog('/', [
             .title("PayPal Integration's Bot")
             .text("(Beta!)")
             .images([
-                 builder.CardImage.create(session, "http://docs.botframework.com/images/demo_bot_image.png")
+                 builder.CardImage.create(session, "http://www.jfbdevs.com/bot/bot_intro.fw.png")
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
@@ -213,8 +213,8 @@ bot.dialog('/integration', [
                     .title("Pro")
                     .text("gives you the flexibility and security to build a professional ecommerce site.")
                     .images([
-                        builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/320px-PikePlaceMarket.jpg")
-                            .tap(builder.CardAction.showImage(session, "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/PikePlaceMarket.jpg/800px-PikePlaceMarket.jpg")),
+                        builder.CardImage.create(session, "https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png")
+                            .tap(builder.CardAction.showImage(session, "https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png")),
                     ])
                     .buttons([
                         builder.CardAction.openUrl(session, "https://developer.paypal.com/docs/classic/products/express-checkout/", "Overview"),
