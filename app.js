@@ -430,8 +430,9 @@ bot.dialog('/Magento-1-EC', [
     },
             function (session, results) {
         session.send("Last step! Just click in Save Config (top-right orange button) and PayPal Express Checkout should appear already as a payment method in your checkout (and also the PayPal shortcut if it’s enabled).\n\n <b>(wait) Recommendation:</b> <i>please try a live test and ensure that it’s working as expected. Ensure that the payment went through and you can see it in your PayPal account and also the new order in your Magento > Sales.</i>\n\n\n");
+        session.send("I hope you liked my assistance :-).");
         var style = builder.ListStyle['button'];
-        builder.Prompts.choice(session, "I hope you liked my assistance :-). Do you need more help?", "No Thanks!|Yes, please", { listStyle: style });
+        builder.Prompts.choice(session, "Do you need more help?", "No Thanks!|Yes, please", { listStyle: style });
 
     },
                 function (session, results) {
