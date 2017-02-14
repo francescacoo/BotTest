@@ -436,7 +436,7 @@ bot.dialog('/Magento-1-EC', [
 
     },
                 function (session, results) {
-session.send("Ok cool! Please help me to improve by filling the following survey: \n\nhttp://surveyurl.com\n<br>Goodbye! :-) (hi)");
+session.send("Ok cool! Please help me to improve by filling the following survey: \n\nhttp://surveyurl.com\nGoodbye! :-) (hi)");
 
                 }
 ]);
